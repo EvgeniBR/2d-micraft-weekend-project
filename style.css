@@ -1,0 +1,75 @@
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+  padding:0;
+  margin: 0;
+}
+.welcome-page{
+  height: 100vh;
+  background: url(https://images.indianexpress.com/2020/05/Minecraft-759-1.jpg)no-repeat center/cover;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  }
+  .game-menu{
+    margin-top: 15rem;
+    color:white;
+    font-size: 2rem;
+    
+  }
+  .game-menu div{
+   background:limegreen;
+   margin:1rem;
+   width: 150px;
+   text-align: center;
+   overflow: hidden; 
+  }
+  .game-menu div:hover{
+    background:rgb(21, 138, 21);
+    transition: all 0.5s;
+  }
+  .game-menu div{
+    position: relative;
+  }
+  .game-menu div::after{
+    content: '';
+    position: absolute;
+    border-bottom: black 2px solid;
+    transition:all 0.5s ease-in-out;
+    top:0;
+    left:0;
+    height:100%;
+    width: 10rem;
+    transform: translateX(15rem);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .game-menu div::before{
+    content: '';
+    position: absolute;
+    border-top: black 2px solid;
+    transition:all 0.5s ease-in-out;
+    top:0;
+    left:0;
+    /* height:90%; */
+    width: 10rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-15rem);
+  }
+  .game-menu div:hover::after{
+    transform: translateX(0); 
+  }
+  .game-menu div:hover::before{
+    transform: translateX(0); 
+  }
+
+  .game{
+    background: #76D6FF;
+    height: 100vh;
+  }
