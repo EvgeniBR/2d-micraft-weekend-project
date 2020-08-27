@@ -1,79 +1,168 @@
 *,
 *::before,
-*::after{
+*::after {
   box-sizing: border-box;
-  padding:0;
+  padding: 0;
   margin: 0;
   overflow: hidden;
 }
-.welcome-page{
+.welcome-page {
   height: 100vh;
-  background: url(https://images.indianexpress.com/2020/05/Minecraft-759-1.jpg)no-repeat center/cover;
+  background: url(https://media1.tenor.com/images/24c9fc075496b3aecfdcfb3329d10614/tenor.gif?itemid=18025297)
+    no-repeat center/cover;
   display: flex;
   align-content: center;
   justify-content: center;
   overflow: hidden;
-  margin-top: 0.5rem;
-  }
-  .game-menu{
-    margin-top: 15rem;
-    color:white;
-    font-size: 2rem;
-    overflow: hidden;
-    
-  }
-  .game-menu div{
-   background:limegreen;
-   margin:1rem;
-   width: 150px;
-   text-align: center;
-   overflow: hidden; 
-  }
-  .game-menu div:hover{
-    background:rgb(21, 138, 21);
-    transition: all 0.5s;
-  }
-  .game-menu div{
-    position: relative;
-  }
-  .game-menu div::after{
-    content: '';
-    position: absolute;
-    border-bottom: black 2px solid;
-    transition:all 0.5s ease-in-out;
-    top:0;
-    left:0;
-    height:100%;
-    width: 10rem;
-    transform: translateX(15rem);
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .game-menu div::before{
-    content: '';
-    position: absolute;
-    border-top: black 2px solid;
-    transition:all 0.5s ease-in-out;
-    top:0;
-    left:0;
-    /* height:90%; */
-    width: 10rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateX(-15rem);
-  }
-  .game-menu div:hover::after{
-    transform: translateX(0); 
-  }
-  .game-menu div:hover::before{
-    transform: translateX(0); 
-  }
+}
+.game-menu {
+  margin-top: 15rem;
+  color: white;
+  font-size: 2rem;
+  overflow: hidden;
+}
+.game-menu div {
+  background: limegreen;
+  margin: 1rem;
+  width: 150px;
+  text-align: center;
+  overflow: hidden;
+}
+.game-menu div:hover {
+  background: rgb(21, 138, 21);
+  transition: all 0.5s;
+}
+.game-menu div {
+  position: relative;
+}
+.game-menu div::after {
+  content: "";
+  position: absolute;
+  border-bottom: black 2px solid;
+  transition: all 0.5s ease-in-out;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 10rem;
+  transform: translateX(15rem);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.game-menu div::before {
+  content: "";
+  position: absolute;
+  border-top: black 2px solid;
+  transition: all 0.5s ease-in-out;
+  top: 0;
+  left: 0;
+  /* height:90%; */
+  width: 10rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-15rem);
+}
+.game-menu div:hover::after {
+  transform: translateX(0);
+}
+.game-menu div:hover::before {
+  transform: translateX(0);
+}
+/* --------------------------------------------------------------------------------------------------------- */
+.main-game {
+  display: grid;
+  grid-template-columns: 20vw 60vw 20vw;
+}
+.game {
+  background: white;
+  height: 100vh;
+  color: white;
+  line-height: 0;
+}
+.inventory {
+  background: #131313;
+  color: white;
+  height: 100vh;
+}
+.misc {
+  background: #131313;
+  height: 100vh;
+  color: white;
+}
 
-  .game{
-    background: #76D6FF;
-    height: 100vh;
-  }
+/* Tools------------------------------------------------------------------------------------------------------------- */
+.misc .pickaxe img,
+.misc .axe img,
+.misc .shovel img {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+}
+.misc .pickaxe,
+.misc .axe,
+.misc .shovel {
+  height: 95px;
+  width: 95px;
+  margin: 2rem 5.5rem;
+  border: grey solid 3px;
+  display: flex;
+}
+.misc .pickaxe:hover,
+.misc .axe:hover,
+.misc .shovel:hover{
+  background: paleturquoise;
+}
+.take-pickaxe,
+.drop-pickaxe,
+.take-axe,
+.drop-axe,
+.take-shovel,
+.drop-shovel{
+  align-self: flex-end;
+   position: relative;
+  z-index: 5;
+}
+.misc .reset{
+  margin: 0  6.4rem;
+}
+/* Inventory----------------------------------------------------------------------------------------------------------- */
+.box{
+  width: 2vw;
+  height: 4vh;
+  background: white;
+  display: inline-block;
+  line-height: 0;
+  
+  position: relative;
+  z-index: 0;
+}
+.box:hover{
+  opacity: 0.8;
+}
+.sky-box{
+  background-color: #76d6ff;
+}
+.ground-box{
+  background: url(./img/ground.jpg);
+}
+.ground-top-box{
+  background: url(./img/top-ground.jpg);
+}
+.grass-box{
+  background: url(./img/grass.jpg);
+}
+.stone-box{
+  background: url(./img/stone.jpg);
+}
+.wood-box{
+  background: url(./img/wood.jpg);
+}
+.cloud-box{
+  background:whitesmoke;
+}
+.cloud-box:hover{
+  background:rgb(192, 191, 191);
+}
