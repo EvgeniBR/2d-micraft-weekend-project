@@ -7,11 +7,3 @@ start.addEventListener(`click` ,function (event) {
 })
 
 
-checkbox.addEventListener("change", function (event) {
-  if (this.checked) {
-    img.classList.toggle(`image`);
-    console.log(`hihih`);
-  } else {
-    img.classList.toggle(`image`);
-  }
-});
