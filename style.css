@@ -100,7 +100,6 @@
 .misc .wand img {
   width: 90px;
   height: 90px;
-  position: absolute;
 }
 .misc .pickaxe,
 .misc .axe,
@@ -115,7 +114,7 @@
 .misc .pickaxe:hover,
 .misc .axe:hover,
 .misc .shovel:hover,
-.misc .wand:hover{
+.misc .wand:hover {
   background: paleturquoise;
 }
 .take-pickaxe,
@@ -125,50 +124,97 @@
 .take-shovel,
 .drop-shovel,
 .take-wand,
-.drop-wand{
+.drop-wand {
   align-self: flex-end;
-   position: relative;
+  position: relative;
   z-index: 5;
   display: none;
 }
-.misc .reset{
-  margin: 0  6.4rem;
+.misc .reset {
+  margin: 0 6.4rem;
 }
 /* Inventory----------------------------------------------------------------------------------------------------------- */
-.box{
+.box {
   width: 2vw;
   height: 4vh;
   background: white;
   display: inline-block;
   line-height: 0;
-  
+
   position: relative;
   z-index: 0;
 }
-.box:hover{
+.box:hover {
   opacity: 0.8;
 }
-.sky-box{
+.sky-box {
   background-color: #76d6ff;
 }
-.ground-box{
+.ground-box {
   background: url(./img/ground.jpg);
 }
-.ground-top-box{
+.ground-top-box {
   background: url(./img/top-ground.jpg);
 }
-.grass-box{
+.grass-box {
   background: url(./img/grass.jpg);
 }
-.stone-box{
+.stone-box {
   background: url(./img/stone.jpg);
 }
-.wood-box{
+.wood-box {
   background: url(./img/wood.jpg);
 }
-.cloud-box{
-  background:whitesmoke;
+.cloud-box {
+  background: whitesmoke;
 }
-.cloud-box:hover{
-  background:rgb(192, 191, 191);
+.cloud-box:hover {
+  background: rgb(192, 191, 191);
+}
+/* =======================================inventory */
+
+.inventory .stonepic img,
+.inventory .woodpic img,
+.inventory .groundpic img,
+.inventory .groundtoppic img,
+.inventory .cloudpic img,
+.inventory .grasspic img {
+  margin: 1.5rem 1.5rem 10rem 0rem;
+  width: 160px;
+  height: 60px;
+}
+.inventory .stonepic,
+.inventory .woodpic,
+.inventory .groundpic,
+.inventory .groundtoppic,
+.inventory .cloudpic,
+.inventory .grasspic {
+  height: 115px;
+  width: 95px;
+  margin: 2rem 1.5rem;
+  border: grey solid 3px;
+  display: flex;
+}
+.inventory .stonepic:hover,
+.inventory .woodpic:hover,
+.inventory .groundpic:hover,
+.inventory .groundtoppic:hover, 
+.inventory .cloudpic:hover,
+.inventory .grasspic:hover {
+  background: paleturquoise;
+}
+.stonecounter,
+.woodcounter,
+.groundcounter,
+.groundtopcounter,
+.cloudcounter,
+.grasscounter{
+  width: 100px;
+  color:turquoise;
+  font-weight:bold;
+}
+
+.inventory{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
