@@ -10,17 +10,17 @@
   height: 100vh;
   background: url(https://media1.tenor.com/images/24c9fc075496b3aecfdcfb3329d10614/tenor.gif?itemid=18025297)
     no-repeat center/cover;
-  /* display: flex;
-  align-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  overflow: hidden; */
+  overflow: hidden;
 }
 .game-menu {
   /* margin-top: 15rem; */
   color: white;
   font-size: 2rem;
   overflow: hidden;
-  margin-left: 37.5rem;
 }
 .game-menu div {
   background: limegreen;

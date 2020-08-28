@@ -26,7 +26,7 @@ let woodCounter = document.querySelector(`.woodcounter`);
 let groundCounter = document.querySelector(`.groundcounter`);
 let groundTopCounter = document.querySelector(`.groundtopcounter`);
 let appleCounter = document.querySelector(`.applecounter`);
-let lightCounter = document.querySelector(`.lightcounter`);
+let lightCounter = document.querySelector(`.yellowcounter`);
 const resetPage = document.querySelector(`.reset-btn`);
 
 const srcPick = "http://www.rw-designer.com/cursor-extern.php?id=30247";
@@ -428,6 +428,17 @@ function gameFunction(box) {
         box.currentTarget.classList.remove(`sky-box`);
         box.currentTarget.classList.add(`apple-box`);
         appleCounter.textContent = parseInt(appleCounter.textContent) - 1;
+      }
+    }
+  }
+  if (parseInt(lightCounter.textContent) > 0) {
+    if (currentTool == `yellowcurser`) {
+      console.log(`box got clicked`);
+      console.log(box.currentTarget.classList);
+      if (box.currentTarget.classList.contains(`sky-box`)) {
+        box.currentTarget.classList.remove(`sky-box`);
+        box.currentTarget.classList.add(`light-box`);
+        lightCounter.textContent = parseInt(lightCounter.textContent) - 1;
       }
     }
   }
