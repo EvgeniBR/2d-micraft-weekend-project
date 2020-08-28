@@ -96,14 +96,16 @@
 /* Tools------------------------------------------------------------------------------------------------------------- */
 .misc .pickaxe img,
 .misc .axe img,
-.misc .shovel img {
-  width: 60px;
-  height: 60px;
+.misc .shovel img,
+.misc .wand img {
+  width: 90px;
+  height: 90px;
   position: absolute;
 }
 .misc .pickaxe,
 .misc .axe,
-.misc .shovel {
+.misc .shovel,
+.misc .wand {
   height: 95px;
   width: 95px;
   margin: 2rem 5.5rem;
@@ -112,7 +114,8 @@
 }
 .misc .pickaxe:hover,
 .misc .axe:hover,
-.misc .shovel:hover{
+.misc .shovel:hover,
+.misc .wand:hover{
   background: paleturquoise;
 }
 .take-pickaxe,
@@ -120,10 +123,13 @@
 .take-axe,
 .drop-axe,
 .take-shovel,
-.drop-shovel{
+.drop-shovel,
+.take-wand,
+.drop-wand{
   align-self: flex-end;
    position: relative;
   z-index: 5;
+  display: none;
 }
 .misc .reset{
   margin: 0  6.4rem;

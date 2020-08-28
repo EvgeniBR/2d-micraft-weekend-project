@@ -6,10 +6,12 @@ start.addEventListener(`click`, function (event) {
   console.log(`click`);
   body.firstElementChild.remove();
 });
+
 ////////Tools Picking Up Method///////////////////
 let pickaxe = document.querySelector(`.pickaxeimg`);
 let axe = document.querySelector(`.axeimg`);
 let shovel = document.querySelector(`.shovelimg`);
+let wand = document.querySelector(`.wandimg`);
 let pickUpPickaxe = document.querySelector(`.take-pickaxe`);
 let dropDownPickaxe = document.querySelector(`.drop-pickaxe`);
 let pickUpaxe = document.querySelector(`.take-axe`);
@@ -17,45 +19,32 @@ let dropDownaxe = document.querySelector(`.drop-axe`);
 let pickUpShovel = document.querySelector(`.take-shovel`);
 let dropDownShovel = document.querySelector(`.drop-shovel`);
 
-function mouseMovePickaxe(e) {
-  pickaxe.style.left = -50 + e.clientX + "px";
-  pickaxe.style.top = -50 + e.clientY + "px";
-}
-pickUpPickaxe.onclick = function (e) {
-  pickaxe.addEventListener("mousemove", mouseMovePickaxe);
-};
-dropDownPickaxe.onclick = function (e) {
-  pickaxe.removeEventListener("mousemove", mouseMovePickaxe);
-  pickaxe.style.top = "";
-  pickaxe.style.left = "";
-};
-function mouseMoveAxe(e) {
-  axe.style.left = -50 + e.clientX + "px";
-  axe.style.top = -50 + e.clientY + "px";
-}
-pickUpaxe.onclick = function (e) {
-  axe.addEventListener("mousemove", mouseMoveAxe);
-};
-dropDownaxe.onclick = function (e) {
-  axe.removeEventListener("mousemove", mouseMoveAxe);
-  axe.style.top = "";
-  axe.style.left = "";
-};
-function mouseMoveShovel(e) {
-  shovel.style.left = -50 + e.clientX + "px";
-  shovel.style.top = -50 + e.clientY + "px";
-}
-pickUpShovel.onclick = function (e) {
-  shovel.addEventListener("mousemove", mouseMoveShovel);
-};
-dropDownShovel.onclick = function (e) {
-  shovel.removeEventListener("mousemove", mouseMoveShovel);
-  shovel.style.top = "";
-  shovel.style.left = "";
-};
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//const gameObject = new Map();
-//gameObject.set(key,value);
+const srcPick = 'http://www.rw-designer.com/cursor-extern.php?id=30247';
+let docStyle = document.body.style;
+document.querySelector('.pickaxeimg').addEventListener('click', () => {
+  if (!docStyle.cursor) docStyle.cursor = `url('${srcPick}'), default`;
+  else docStyle.cursor = null;
+});
+const srcAxe = 'http://www.rw-designer.com/cursor-extern.php?id=24924';
+ docStyle = document.body.style;
+document.querySelector('.axeimg').addEventListener('click', () => {
+  if (!docStyle.cursor) docStyle.cursor = `url('${srcAxe}'), default`;
+  else docStyle.cursor = null;
+});
+const srcShovel = 'http://www.rw-designer.com/cursor-extern.php?id=24925';
+ docStyle = document.body.style;
+document.querySelector('.shovelimg').addEventListener('click', () => {
+  if (!docStyle.cursor) docStyle.cursor = `url('${srcShovel}'), default`;
+  else docStyle.cursor = null;
+});
+const srcWand = 'http://www.rw-designer.com/cursor-extern.php?id=18817';
+ docStyle = document.body.style;
+document.querySelector('.wandimg').addEventListener('click', () => {
+  if (!docStyle.cursor) docStyle.cursor = `url('${srcWand}'), default`;
+  else docStyle.cursor = null;
+});
+
+
 let game = document.querySelector(`.game`);
 const gameObject = new Map();
 
@@ -175,11 +164,11 @@ function initCloud() {
   let row = 2;
   let col = 1;
   const cloudMatrix = [
-    [0,0,0,0,0,0,0,0,0,1,0,0,0,0,0], 
-    [0,0,0,0,0,1,0,0,1,1,1,0,0,0,0],
-    [0,0,1,0,1,1,1,1,1,1,1,1,1,1,0],
+    [0,0,0,0,0,0,1,1,1,1,0,0,0,0,0], 
+    [0,0,0,0,0,1,1,1,1,1,1,0,0,0,0],
+    [0,0,1,1,1,1,1,1,1,1,1,1,1,1,0],
     [0,1,1,1,1,1,1,1,1,1,1,1,1,1,1], 
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,0], 
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], 
     [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
     [0,0,1,1,1,1,1,1,1,1,1,1,1,1,0], 
     [0,0,0,1,1,1,1,1,1,1,1,0,0,0,0],
@@ -201,3 +190,9 @@ function initCloud() {
   }
 }
 initCloud();
+
+// while(docStyle.cursor = `url('${srcPick}')`){
+//   function pickStone(){
+
+//   }
+// }
