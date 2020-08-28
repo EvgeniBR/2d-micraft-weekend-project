@@ -6,8 +6,8 @@ start.addEventListener(`click`, function (event) {
   console.log(`click`);
   body.firstElementChild.remove();
 });
-let currentBox ;
-let currentTool ;
+let currentBox;
+let currentTool;
 ////////Tools Picking Up Method///////////////////
 let pickaxe = document.querySelector(`.pickaxeimg`);
 let axe = document.querySelector(`.axeimg`);
@@ -25,6 +25,10 @@ let grassCounter = document.querySelector(`.grasscounter`);
 let woodCounter = document.querySelector(`.woodcounter`);
 let groundCounter = document.querySelector(`.groundcounter`);
 let groundTopCounter = document.querySelector(`.groundtopcounter`);
+let appleCounter = document.querySelector(`.applecounter`);
+let lightCounter = document.querySelector(`.lightcounter`);
+const resetPage = document.querySelector(`.reset-btn`);
+
 const srcPick = "http://www.rw-designer.com/cursor-extern.php?id=30247";
 let docStyle = document.body.style;
 document.querySelector(".pickaxeimg").addEventListener("click", () => {
@@ -95,6 +99,34 @@ document.querySelector(".woodimg").addEventListener("click", () => {
   if (!docStyle.cursor) docStyle.cursor = `url('${srcWood}'), default`;
   else docStyle.cursor = null;
 });
+const srcHand = "http://www.rw-designer.com/cursor-extern.php?id=23451";
+docStyle = document.body.style;
+document.querySelector(".handimg").addEventListener("click", () => {
+  currentTool = `handcursor`;
+  if (!docStyle.cursor) docStyle.cursor = `url('${srcHand}'), default`;
+  else docStyle.cursor = null;
+});
+const srcLight = "https://cur.cursors-4u.net/nature/nat-11/nat1010.cur";
+docStyle = document.body.style;
+document.querySelector(".lightimg").addEventListener("click", () => {
+  currentTool = `lightcursor`;
+  if (!docStyle.cursor) docStyle.cursor = `url('${srcLight}'), default`;
+  else docStyle.cursor = null;
+});
+const srcApple = "https://ani.cursors-4u.net/others/oth-9/oth904.cur";
+docStyle = document.body.style;
+document.querySelector(".appleimg").addEventListener("click", () => {
+  currentTool = `applecurser`;
+  if (!docStyle.cursor) docStyle.cursor = `url('${srcApple}'), default`;
+  else docStyle.cursor = null;
+});
+const srcYellow = "https://ani.cursors-4u.net/others/oth-9/oth909.cur";
+docStyle = document.body.style;
+document.querySelector(".yellowimg").addEventListener("click", () => {
+  currentTool = `yellowcurser`;
+  if (!docStyle.cursor) docStyle.cursor = `url('${srcYellow}'), default`;
+  else docStyle.cursor = null;
+});
 
 let game = document.querySelector(`.game`);
 const gameObject = new Map();
@@ -145,14 +177,14 @@ function initTree() {
   let col = 6;
   const treeMatrix = [
     [0, 0, 0, 1, 1, 1, 0, 0, 0],
-    [0, 0, 0, 1, 1, 1, 0, 0, 0],
+    [0, 0, 0, 1, 1, 3, 0, 0, 0],
     [0, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 0],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [0, 1, 1, 2, 1, 1, 1, 1, 0],
+    [0, 1, 1, 3, 1, 1, 3, 1, 0],
+    [1, 3, 1, 1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 3, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 3, 1, 3, 1],
+    [1, 3, 1, 1, 1, 1, 1, 1, 1],
+    [0, 1, 1, 2, 1, 3, 1, 1, 0],
     [0, 1, 1, 2, 2, 1, 1, 0, 0],
     [0, 0, 0, 2, 2, 2, 0, 0, 0],
     [0, 0, 0, 2, 2, 2, 0, 0, 0],
@@ -162,14 +194,17 @@ function initTree() {
 
   for (let i = 0; i < treeMatrix.length; i++) {
     for (let j = 0; j < treeMatrix[0].length; j++) {
-      
       let gameO = gameObject.get(`${col},${row}`);
       if (treeMatrix[i][j] === 1) {
         gameO.myDiv.classList.remove(`sky-box`);
         gameO.myDiv.classList.add(`grass-box`);
-      } else if (treeMatrix[i][j] === 2) {
+      }
+      if (treeMatrix[i][j] === 2) {
         gameO.myDiv.classList.remove(`sky-box`);
         gameO.myDiv.classList.add(`wood-box`);
+      } else if (treeMatrix[i][j] === 3) {
+        gameO.myDiv.classList.remove(`sky-box`);
+        gameO.myDiv.classList.add(`apple-box`);
       }
       row++;
     }
@@ -194,7 +229,6 @@ function initStone() {
 
   for (let i = 0; i < stoneMatrix.length; i++) {
     for (let j = 0; j < stoneMatrix[0].length; j++) {
-      
       let gameO = gameObject.get(`${col},${row}`);
       if (stoneMatrix[i][j] === 1) {
         gameO.myDiv.classList.remove(`sky-box`);
@@ -215,24 +249,26 @@ function initCloud() {
   let row = 2;
   let col = 1;
   const cloudMatrix = [
-    [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0],
-    [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 1, 1, 2, 1, 1, 1, 0, 0, 0, 0],
+    [0, 0, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 0],
+    [0, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1],
+    [0, 0, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 0],
+    [0, 0, 0, 1, 1, 1, 1, 2, 2, 1, 1, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 0, 0, 0, 0, 0],
   ];
 
   for (let i = 0; i < cloudMatrix.length; i++) {
     for (let j = 0; j < cloudMatrix[0].length; j++) {
-      
       let gameO = gameObject.get(`${col},${row}`);
       if (cloudMatrix[i][j] === 1) {
         gameO.myDiv.classList.remove(`sky-box`);
         gameO.myDiv.classList.add(`cloud-box`);
+      } else if (cloudMatrix[i][j] === 2) {
+        gameO.myDiv.classList.remove(`sky-box`);
+        gameO.myDiv.classList.add(`light-box`);
       }
       row++;
     }
@@ -244,131 +280,165 @@ initCloud();
 
 const generalBox = document.querySelectorAll(`.box`);
 
-function gameFunction(box){
-
-    if(currentTool == `stoneAxe`){
-      console.log(`box got clicked`);
-      console.log(box.currentTarget.classList);
-      if(box.currentTarget.classList.contains(`stone-box`)){
-        box.currentTarget.classList.remove(`stone-box`);
-        box.currentTarget.classList.add(`sky-box`);
-        stoneCounter.textContent = parseInt(stoneCounter.textContent) +1
-      }
-  }
-    if(currentTool == `woodAxe`){
-      console.log(`box got clicked`);
-      console.log(box.currentTarget.classList);
-      if(box.currentTarget.classList.contains(`wood-box`)){
-        box.currentTarget.classList.remove(`wood-box`);
-        box.currentTarget.classList.add(`sky-box`);
-        woodCounter.textContent = parseInt(woodCounter.textContent) +1
-      }
-  }
-    if(currentTool == `groundShovel`){
-      console.log(`box got clicked`);
-      console.log(box.currentTarget.classList);
-      if(box.currentTarget.classList.contains(`ground-box`)){
-        box.currentTarget.classList.remove(`ground-box`);
-        box.currentTarget.classList.add(`sky-box`);
-        groundCounter.textContent = parseInt(groundCounter.textContent) +1
-      }
-  }
-    if(currentTool == `groundShovel`){
-      console.log(`box got clicked`);
-      console.log(box.currentTarget.classList);
-      if(box.currentTarget.classList.contains(`ground-top-box`)){
-        box.currentTarget.classList.remove(`ground-top-box`);
-        box.currentTarget.classList.add(`sky-box`);
-        groundTopCounter.textContent = parseInt(groundTopCounter.textContent) +1
-      }
+function gameFunction(box) {
+  if (currentTool == `stoneAxe`) {
+    console.log(`box got clicked`);
+    console.log(box.currentTarget.classList);
+    if (box.currentTarget.classList.contains(`stone-box`)) {
+      box.currentTarget.classList.remove(`stone-box`);
+      box.currentTarget.classList.add(`sky-box`);
+      stoneCounter.textContent = parseInt(stoneCounter.textContent) + 1;
     }
-    if(currentTool == `superWand`){
-      console.log(`box got clicked`);
-      console.log(box.currentTarget.classList);
-      if(box.currentTarget.classList.contains(`cloud-box`)){
-        box.currentTarget.classList.remove(`cloud-box`);
-        box.currentTarget.classList.add(`sky-box`);
-        cloudCounter.textContent = parseInt(cloudCounter.textContent) +1
-      }
   }
-    if(currentTool == `superWand`){
-      console.log(`box got clicked`);
-      console.log(box.currentTarget.classList);
-      if(box.currentTarget.classList.contains(`grass-box`)){
-        box.currentTarget.classList.remove(`grass-box`);
-        box.currentTarget.classList.add(`sky-box`);
-        grassCounter.textContent = parseInt(grassCounter.textContent) +1
-      }
+  if (currentTool == `lightcursor`) {
+    console.log(`box got clicked`);
+    console.log(box.currentTarget.classList);
+    if (box.currentTarget.classList.contains(`light-box`)) {
+      box.currentTarget.classList.remove(`light-box`);
+      box.currentTarget.classList.add(`sky-box`);
+      lightCounter.textContent = parseInt(lightCounter.textContent) + 1;
+    }
   }
-  if(parseInt(stoneCounter.textContent)>0){
-    if(currentTool == `stonecurser`){
+  if (currentTool == `handcursor`) {
+    console.log(`box got clicked`);
+    console.log(box.currentTarget.classList);
+    if (box.currentTarget.classList.contains(`apple-box`)) {
+      box.currentTarget.classList.remove(`apple-box`);
+      box.currentTarget.classList.add(`sky-box`);
+      appleCounter.textContent = parseInt(appleCounter.textContent) + 1;
+    }
+  }
+  if (currentTool == `woodAxe`) {
+    console.log(`box got clicked`);
+    console.log(box.currentTarget.classList);
+    if (box.currentTarget.classList.contains(`wood-box`)) {
+      box.currentTarget.classList.remove(`wood-box`);
+      box.currentTarget.classList.add(`sky-box`);
+      woodCounter.textContent = parseInt(woodCounter.textContent) + 1;
+    }
+  }
+  if (currentTool == `groundShovel`) {
+    console.log(`box got clicked`);
+    console.log(box.currentTarget.classList);
+    if (box.currentTarget.classList.contains(`ground-box`)) {
+      box.currentTarget.classList.remove(`ground-box`);
+      box.currentTarget.classList.add(`sky-box`);
+      groundCounter.textContent = parseInt(groundCounter.textContent) + 1;
+    }
+  }
+  if (currentTool == `groundShovel`) {
+    console.log(`box got clicked`);
+    console.log(box.currentTarget.classList);
+    if (box.currentTarget.classList.contains(`ground-top-box`)) {
+      box.currentTarget.classList.remove(`ground-top-box`);
+      box.currentTarget.classList.add(`sky-box`);
+      groundTopCounter.textContent = parseInt(groundTopCounter.textContent) + 1;
+    }
+  }
+  if (currentTool == `superWand`) {
+    console.log(`box got clicked`);
+    console.log(box.currentTarget.classList);
+    if (box.currentTarget.classList.contains(`cloud-box`)) {
+      box.currentTarget.classList.remove(`cloud-box`);
+      box.currentTarget.classList.add(`sky-box`);
+      cloudCounter.textContent = parseInt(cloudCounter.textContent) + 1;
+    }
+  }
+  if (currentTool == `superWand`) {
+    console.log(`box got clicked`);
+    console.log(box.currentTarget.classList);
+    if (box.currentTarget.classList.contains(`grass-box`)) {
+      box.currentTarget.classList.remove(`grass-box`);
+      box.currentTarget.classList.add(`sky-box`);
+      grassCounter.textContent = parseInt(grassCounter.textContent) + 1;
+    }
+  }
+  if (parseInt(stoneCounter.textContent) > 0) {
+    if (currentTool == `stonecurser`) {
       console.log(`box got clicked`);
       console.log(box.currentTarget.classList);
-      if(box.currentTarget.classList.contains(`sky-box`)){
+      if (box.currentTarget.classList.contains(`sky-box`)) {
         box.currentTarget.classList.remove(`sky-box`);
         box.currentTarget.classList.add(`stone-box`);
-        stoneCounter.textContent = parseInt(stoneCounter.textContent) -1
+        stoneCounter.textContent = parseInt(stoneCounter.textContent) - 1;
       }
+    }
   }
-}
-  if(parseInt(grassCounter.textContent)>0){
-    if(currentTool == `grasscurser`){
+  if (parseInt(grassCounter.textContent) > 0) {
+    if (currentTool == `grasscurser`) {
       console.log(`box got clicked`);
       console.log(box.currentTarget.classList);
-      if(box.currentTarget.classList.contains(`sky-box`)){
+      if (box.currentTarget.classList.contains(`sky-box`)) {
         box.currentTarget.classList.remove(`sky-box`);
         box.currentTarget.classList.add(`grass-box`);
-        grassCounter.textContent = parseInt(grassCounter.textContent) -1
+        grassCounter.textContent = parseInt(grassCounter.textContent) - 1;
       }
+    }
   }
-}
-  if(parseInt(groundCounter.textContent)>0){
-    if(currentTool == `groundcurser`){
+  if (parseInt(groundCounter.textContent) > 0) {
+    if (currentTool == `groundcurser`) {
       console.log(`box got clicked`);
       console.log(box.currentTarget.classList);
-      if(box.currentTarget.classList.contains(`sky-box`)){
+      if (box.currentTarget.classList.contains(`sky-box`)) {
         box.currentTarget.classList.remove(`sky-box`);
         box.currentTarget.classList.add(`ground-box`);
-        groundCounter.textContent = parseInt(groundCounter.textContent) -1
+        groundCounter.textContent = parseInt(groundCounter.textContent) - 1;
       }
+    }
   }
-}
-  if(parseInt(cloudCounter.textContent)>0){
-    if(currentTool == `cloudcurser`){
+  if (parseInt(cloudCounter.textContent) > 0) {
+    if (currentTool == `cloudcurser`) {
       console.log(`box got clicked`);
       console.log(box.currentTarget.classList);
-      if(box.currentTarget.classList.contains(`sky-box`)){
+      if (box.currentTarget.classList.contains(`sky-box`)) {
         box.currentTarget.classList.remove(`sky-box`);
         box.currentTarget.classList.add(`cloud-box`);
-        cloudCounter.textContent = parseInt(cloudCounter.textContent) -1
+        cloudCounter.textContent = parseInt(cloudCounter.textContent) - 1;
       }
+    }
   }
-}
-  if(parseInt(groundTopCounter.textContent)>0){
-    if(currentTool == `groundtopcurser`){
+  if (parseInt(groundTopCounter.textContent) > 0) {
+    if (currentTool == `groundtopcurser`) {
       console.log(`box got clicked`);
       console.log(box.currentTarget.classList);
-      if(box.currentTarget.classList.contains(`sky-box`)){
+      if (box.currentTarget.classList.contains(`sky-box`)) {
         box.currentTarget.classList.remove(`sky-box`);
         box.currentTarget.classList.add(`ground-top-box`);
-        groundTopCounter.textContent = parseInt(groundTopCounter.textContent) -1
+        groundTopCounter.textContent =
+          parseInt(groundTopCounter.textContent) - 1;
       }
+    }
   }
-}
-  if(parseInt(woodCounter.textContent)>0){
-    if(currentTool == `woodcurser`){
+  if (parseInt(woodCounter.textContent) > 0) {
+    if (currentTool == `woodcurser`) {
       console.log(`box got clicked`);
       console.log(box.currentTarget.classList);
-      if(box.currentTarget.classList.contains(`sky-box`)){
+      if (box.currentTarget.classList.contains(`sky-box`)) {
         box.currentTarget.classList.remove(`sky-box`);
         box.currentTarget.classList.add(`wood-box`);
-        woodCounter.textContent = parseInt(woodCounter.textContent) -1
+        woodCounter.textContent = parseInt(woodCounter.textContent) - 1;
       }
+    }
+  }
+  if (parseInt(appleCounter.textContent) > 0) {
+    if (currentTool == `applecurser`) {
+      console.log(`box got clicked`);
+      console.log(box.currentTarget.classList);
+      if (box.currentTarget.classList.contains(`sky-box`)) {
+        box.currentTarget.classList.remove(`sky-box`);
+        box.currentTarget.classList.add(`apple-box`);
+        appleCounter.textContent = parseInt(appleCounter.textContent) - 1;
+      }
+    }
   }
 }
-}
 
-generalBox.forEach(function(box){
-  box.addEventListener(`click` , gameFunction);
-
+generalBox.forEach(function (box) {
+  box.addEventListener(`click`, gameFunction);
 });
+
+function initReset() {
+  window.location.reload();
+  console.log(`res`);
+}
+resetPage.addEventListener(`click`, initReset);

@@ -1,50 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mincraft 2D</title>
-  <link rel="stylesheet" href="./normalize.css">
-  <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-  <section class="welcome-page">
-    <div class="game-menu">
-    <div class="start">Start</div>
-    <div class="load">Load</div>
-    <div class="load">Settings</div>
-    <div class="quit">Quit</div>
-    </div>
-  </section>
-  <section class="main-game">
-    <div class="inventory">
-            <div class="stonepic"><div class="stonecounter">0</div><img class="stoneimg" src="./img/stone.jpg" alt="stone"></div>
-            <div class="woodpic"><div class="woodcounter">0</div><img class="woodimg" src="./img/wood.jpg" alt="wood"></div>
-            <div class="groundpic"><div class="groundcounter">0</div><img class="groundimg" src="./img/ground.jpg" alt="ground"></div>
-            <div class="groundtoppic"><div class="groundtopcounter">0</div><img class="groundtopimg" src="./img/top-ground.jpg" alt="groundtop"></div>
-            <div class="cloudpic"><div class="cloudcounter">0</div><img class="cloudimg" src="./img/white.jpg" alt="groundtop"></div>
-            <div class="grasspic"><div class="grasscounter">0</div><img class="grassimg" src="./img/grass.jpg" alt="groundtop"></div>
-         </div>
-    <div class="game">
-      
-     
-    </div>
-    <div class="misc">
-      <div class="pickaxe"><img class="pickaxeimg" src="./img/hiclipart.com.png"  alt="pickaxe">
-        <button class="take-pickaxe">Pickup</button> <button class="drop-pickaxe">Drop</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mincraft 2D</title>
+    <link rel="stylesheet" href="./normalize.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <section class="welcome-page">
+      <div class="description">
+        <h2>Welcome To Mincraft 2D</h2>
+        <p>Here, in this imaginary world you need to use your <br> imagination to colect items and <br> reasign them as you wish</p>
+        <p>Here, you are the god of creation so create and conquer your amagination!</p>
       </div>
-      <div class="axe"><img class="axeimg" src="./img/axe.png"  alt="pickaxe">
-        <button class="take-axe">Pickup</button> <button class="drop-axe">Drop</button>
+      <div class="game-menu">
+        <div class="start">Start</div>
+        <div class="load">Load</div>
+        <div class="load">Settings</div>
+        <div class="quit">Quit</div>
       </div>
-      <div class="shovel"><img class="shovelimg" src="./img/shovel.png"  alt="pickaxe">
-        <button class="take-shovel">Pickup</button> <button class="drop-shovel">Drop</button>
+ 
+    </section>
+    <section class="main-game">
+      <div class="inventory">
+        <div class="stonepic">
+          <div class="stonecounter">0</div>
+          <img class="stoneimg" src="./img/stone.jpg" alt="stone" />
+        </div>
+        <div class="woodpic">
+          <div class="woodcounter">0</div>
+          <img class="woodimg" src="./img/wood.jpg" alt="wood" />
+        </div>
+        <div class="groundpic">
+          <div class="groundcounter">0</div>
+          <img class="groundimg" src="./img/ground.jpg" alt="ground" />
+        </div>
+        <div class="groundtoppic">
+          <div class="groundtopcounter">0</div>
+          <img
+            class="groundtopimg"
+            src="./img/top-ground.jpg"
+            alt="groundtop"
+          />
+        </div>
+        <div class="cloudpic">
+          <div class="cloudcounter">0</div>
+          <img class="cloudimg" src="./img/white.jpg" alt="groundtop" />
+        </div>
+        <div class="grasspic">
+          <div class="grasscounter">0</div>
+          <img class="grassimg" src="./img/grass.jpg" alt="groundtop" />
+        </div>
+        <div class="applepic">
+          <div class="applecounter">0</div>
+          <img class="appleimg" src="./img/Red.jpg" alt="groundtop" />
+        </div>
+        <div class="yellowpic">
+          <div class="yellowcounter">0</div>
+          <img class="yellowimg" src="./img/download (2).jpg" alt="groundtop" />
+        </div>
       </div>
-      <div class="wand"><img class="wandimg" src="./img/Wand-PNG-Image.png"  alt="wand">
-        <button class="take-wand">Pickup</button> <button class="drop-wand">Drop</button>
+      <div class="game"></div>
+      <div>
+      <div class="misc">
+        <div class="pickaxe">
+          <img class="pickaxeimg" src="./img/hiclipart.com.png" alt="pickaxe" />
+        </div>
+        <div class="axe">
+          <img class="axeimg" src="./img/axe.png" alt="pickaxe" />
+        </div>
+        <div class="shovel">
+          <img class="shovelimg" src="./img/shovel.png" alt="pickaxe" />
+        </div>
+        <div class="wand">
+          <img class="wandimg" src="./img/Wand-PNG-Image.png" alt="wand" />
+        </div>
+        <div class="hand">
+          <img
+            class="handimg"
+            src="./img/584bebc9a62aaa830c43ed9e.png"
+            alt="hand"
+          />
+        </div>
+        <div class="light">
+          <img
+            class="lightimg"
+            src="./img/lightning_PNG31.png"
+            alt="light"
+          />
+        </div>
+        </div>
+        <div class="reset-div">
+          <button class="reset-btn" type="reset">Reset All</button>
+        </div>
       </div>
-      <div class="reset"><button type="reset">Reset All</button></div>
-    </div>
-  </section>
-  <script src="./logic.js"></script>
-</body>
+    </section>
+    <script src="./logic.js"></script>
+  </body>
 </html>

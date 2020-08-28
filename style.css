@@ -10,16 +10,17 @@
   height: 100vh;
   background: url(https://media1.tenor.com/images/24c9fc075496b3aecfdcfb3329d10614/tenor.gif?itemid=18025297)
     no-repeat center/cover;
-  display: flex;
+  /* display: flex;
   align-content: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: hidden; */
 }
 .game-menu {
-  margin-top: 15rem;
+  /* margin-top: 15rem; */
   color: white;
   font-size: 2rem;
   overflow: hidden;
+  margin-left: 37.5rem;
 }
 .game-menu div {
   background: limegreen;
@@ -71,6 +72,14 @@
 .game-menu div:hover::before {
   transform: translateX(0);
 }
+.description{
+  color:whitesmoke;
+  margin: 2rem;
+}
+.description h2{
+   font-size: 3rem;
+}
+
 /* --------------------------------------------------------------------------------------------------------- */
 .main-game {
   display: grid;
@@ -94,27 +103,39 @@
 }
 
 /* Tools------------------------------------------------------------------------------------------------------------- */
+.misc{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding:-1rem;
+  height: 90vh;
+}
 .misc .pickaxe img,
 .misc .axe img,
 .misc .shovel img,
-.misc .wand img {
+.misc .wand img,
+.misc .hand img, 
+.misc .light img {
   width: 90px;
   height: 90px;
 }
 .misc .pickaxe,
 .misc .axe,
 .misc .shovel,
-.misc .wand {
+.misc .wand,
+.misc .hand,
+.misc .light {
   height: 95px;
   width: 95px;
-  margin: 2rem 5.5rem;
+  margin:1rem;
   border: grey solid 3px;
   display: flex;
 }
 .misc .pickaxe:hover,
 .misc .axe:hover,
 .misc .shovel:hover,
-.misc .wand:hover {
+.misc .wand:hover,
+.misc .hand:hover,
+.misc .light:hover  {
   background: paleturquoise;
 }
 .take-pickaxe,
@@ -124,14 +145,18 @@
 .take-shovel,
 .drop-shovel,
 .take-wand,
-.drop-wand {
+.drop-wand,
+.take-hand,
+.drop-hand {
   align-self: flex-end;
   position: relative;
   z-index: 5;
   display: none;
 }
 .misc .reset {
-  margin: 0 6.4rem;
+  margin-top:4rem;
+  width: 100%;
+  
 }
 /* Inventory----------------------------------------------------------------------------------------------------------- */
 .box {
@@ -165,11 +190,17 @@
 .wood-box {
   background: url(./img/wood.jpg);
 }
+.light-box{
+  background-color:#ccff00;
+}
 .cloud-box {
   background: whitesmoke;
 }
 .cloud-box:hover {
   background: rgb(192, 191, 191);
+}
+.apple-box{
+  background: maroon;
 }
 /* =======================================inventory */
 
@@ -178,7 +209,9 @@
 .inventory .groundpic img,
 .inventory .groundtoppic img,
 .inventory .cloudpic img,
-.inventory .grasspic img {
+.inventory .grasspic img,
+.inventory .applepic img,
+.inventory .yellowpic img  {
   margin: 1.5rem 1.5rem 10rem 0rem;
   width: 160px;
   height: 60px;
@@ -188,10 +221,12 @@
 .inventory .groundpic,
 .inventory .groundtoppic,
 .inventory .cloudpic,
-.inventory .grasspic {
+.inventory .grasspic,
+.inventory .applepic,
+.inventory .yellowpic {
   height: 115px;
   width: 95px;
-  margin: 2rem 1.5rem;
+  margin: 1.4rem 1.5rem;
   border: grey solid 3px;
   display: flex;
 }
@@ -200,7 +235,9 @@
 .inventory .groundpic:hover,
 .inventory .groundtoppic:hover, 
 .inventory .cloudpic:hover,
-.inventory .grasspic:hover {
+.inventory .grasspic:hover,
+.inventory .applepic:hover,
+.inventory .yellowpic:hover  {
   background: paleturquoise;
 }
 .stonecounter,
@@ -208,7 +245,9 @@
 .groundcounter,
 .groundtopcounter,
 .cloudcounter,
-.grasscounter{
+.grasscounter,
+.applecounter,
+.yellowcounter{
   width: 100px;
   color:turquoise;
   font-weight:bold;
@@ -218,3 +257,29 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+.misc .shovel,
+.misc .wand,
+.misc .hand,
+.misc .light {
+  margin-top: -6rem;
+}
+.reset-div{
+  background: grey;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reset-btn{
+  width: 70%;
+  height: 70%;
+  background:chartreuse;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: red;
+  transition: all 0.5s;
+}
+.reset-btn:hover{
+  background: pink;
+}
+
