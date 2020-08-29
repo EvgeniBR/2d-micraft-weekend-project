@@ -283,3 +283,79 @@
   background: pink;
 }
 
+@media(max-width: 500px){
+  .inventory{
+    display: grid;
+    grid-template-columns:  1fr;
+  }
+  .inventory .stonepic img,
+  .inventory .woodpic img,
+  .inventory .groundpic img,
+  .inventory .groundtoppic img,
+  .inventory .cloudpic img,
+  .inventory .grasspic img,
+  .inventory .applepic img,
+  .inventory .yellowpic img  {
+    margin: 0;
+    
+    height: 110%;
+  }
+  .inventory .stonepic,
+.inventory .woodpic,
+.inventory .groundpic,
+.inventory .groundtoppic,
+.inventory .cloudpic,
+.inventory .grasspic,
+.inventory .applepic,
+.inventory .yellowpic {
+  height: 65px;
+  width: 45px;
+  margin:0;
+  border: grey solid 3px;
+  display: flex;
+}
+.stonecounter,
+.woodcounter,
+.groundcounter,
+.groundtopcounter,
+.cloudcounter,
+.grasscounter,
+.applecounter,
+.yellowcounter{
+  width: 300px;
+  color:turquoise;
+  font-weight:bold;
+}
+.misc{
+  display: grid;
+  grid-template-columns: 1fr ;
+  height: 90vh;
+}
+.misc .pickaxe img,
+.misc .axe img,
+.misc .shovel img,
+.misc .wand img,
+.misc .hand img, 
+.misc .light img {
+  width: 45px;
+  height: 45px;
+}
+.misc .pickaxe,
+.misc .axe,
+.misc .shovel,
+.misc .wand,
+.misc .hand,
+.misc .light {
+  height: 45px;
+  width: 45px;
+  margin:0;
+  border: grey solid 3px;
+  display: flex;
+}
+.misc .shovel,
+.misc .wand,
+.misc .hand,
+.misc .light {
+  margin:0;
+}
+}
